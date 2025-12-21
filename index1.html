@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خدمات الصفوة السريعة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary-color: #ff6b35;
+            --whatsapp-color: #25D366;
+            --call-color: #4285F4;
+        }
+        
+        .primary {
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8e53 100%);
+        }
+        
+        .btn-call {
+            background-color: var(--call-color);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-call:hover {
+            background-color: #3367d6;
+            transform: translateY(-2px);
+        }
+        
+        .btn-whatsapp {
+            background-color: var(--whatsapp-color);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+            transform: translateY(-2px);
+        }
+        
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .scale-in {
+            animation: scaleIn 0.6s ease-out forwards;
+            animation-play-state: paused;
+        }
+        
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .stagger-animation > *:nth-child(1) { animation-delay: 0.1s; }
+        .stagger-animation > *:nth-child(2) { animation-delay: 0.3s; }
+        .stagger-animation > *:nth-child(3) { animation-delay: 0.5s; }
+        
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(255, 142, 83, 0.05) 100%);
+            animation: float 8s infinite ease-in-out;
+        }
+        
+        .floating-shape:nth-child(2) {
+            animation-delay: 1s;
+            animation-duration: 10s;
+        }
+        
+        .floating-shape:nth-child(3) {
+            animation-delay: 2s;
+            animation-duration: 12s;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+        }
+        
+        /* تأثيرات متحركة للصور */
+        .img-container {
+            position: relative;
+            overflow: hidden;
+            height: 240px;
+        }
+        
+        .service-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.6s ease;
+        }
+        
+        .img-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 20px;
+        }
+        
+        .img-overlay-text {
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transform: translateY(20px);
+            transition: transform 0.4s ease;
+        }
+        
+        .card-hover:hover .service-img {
+            transform: scale(1.1);
+        }
+        
+        .card-hover:hover .img-overlay {
+            opacity: 1;
+        }
+        
+        .card-hover:hover .img-overlay-text {
+            transform: translateY(0);
+        }
+        
+        /* أزرار مزدوجة */
+        .dual-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .dual-button {
+            flex: 1;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .dual-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 14px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body class="font-sans">
+    
+    <!-- خدمات الصفوة السريعة -->
+    <section id="services" class="py-20 bg-gray-50 relative overflow-hidden px-4 md:px-8 lg:px-16">
+
+        <!-- الأشكال العائمة -->
+        <div class="floating-shapes">
+            <div class="floating-shape w-64 h-64 -top-32 -right-32"></div>
+            <div class="floating-shape w-48 h-48 bottom-0 left-0"></div>
+            <div class="floating-shape w-32 h-32 top-1/2 left-1/4"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 lg:px-8 relative z-10">
+
+            <!-- العنوان -->
+            <div class="text-center mb-16 fade-in">
+                <div class="mb-8">
+                    <div class="inline-flex items-center primary text-white backdrop-blur-sm rounded-full px-6 py-3 border border-white/20 mb-6">
+                        <div class="w-16 h-16 bg-white rounded-lg p-2 flex items-center justify-center ml-3">
+                            <div class="w-full h-full primary rounded-lg flex items-center justify-center text-xl font-bold text-white">
+                                ص.س
+                            </div>
+                        </div>
+                        <h2 class="text-2xl font-bold">الصفوة السريعة جدة</h2>
+                    </div>
+                </div>
+
+                <h2 class="text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
+                    خدماتنا في نقل العفش والنظافة
+                </h2>
+                <div class="w-24 h-1 primary mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    نقدم خدمات متكاملة لنقل العفش والنظافة في جدة باحترافية عالية، سرعة في التنفيذ، وضمان كامل على الخدمة
+                </p>
+            </div>
+
+            <!-- الخدمات (3 فقط) -->
+            <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-animation">
+
+                <!-- خدمة 1 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover scale-in">
+                    <div class="img-container">
+                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="نقل عفش المنازل" 
+                             class="service-img">
+                        <div class="img-overlay">
+                            <span class="img-overlay-text">نقل آمن وسريع للمنازل</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-orange-500 mb-3">
+                            <i class="fas fa-truck ml-2"></i>
+                            نقل عفش المنازل
+                        </h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            خدمة نقل عفش متكاملة للمنازل والشقق في جدة مع فك وتركيب وتغليف احترافي للحفاظ على الأثاث.
+                        </p>
+                        <div class="dual-buttons">
+                            <a href="tel:0592425077" class="dual-button btn-call text-white">
+                                <i class="fas fa-phone-alt"></i>
+                                اتصل الآن
+                            </a>
+                            <a href="https://wa.me/966592425077" class="dual-button btn-whatsapp text-white">
+                                <i class="fab fa-whatsapp"></i>
+                                واتساب
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- خدمة 2 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover scale-in">
+                    <div class="img-container">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1558&q=80" 
+                             alt="فك وتركيب الأثاث" 
+                             class="service-img">
+                        <div class="img-overlay">
+                            <span class="img-overlay-text">فك وتركيب احترافي</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-orange-500 mb-3">
+                            <i class="fas fa-tools ml-2"></i>
+                            فك وتركيب الأثاث
+                        </h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            فريق متخصص في فك وتركيب جميع أنواع الأثاث بدقة عالية لضمان إعادة التركيب بدون أي تلف.
+                        </p>
+                        <div class="dual-buttons">
+                            <a href="tel:0592425077" class="dual-button btn-call text-white">
+                                <i class="fas fa-phone-alt"></i>
+                                اتصل الآن
+                            </a>
+                            <a href="https://wa.me/966592425077" class="dual-button btn-whatsapp text-white">
+                                <i class="fab fa-whatsapp"></i>
+                                واتساب
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- خدمة 3 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover scale-in">
+                    <div class="img-container">
+                        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80" 
+                             alt="خدمات النظافة" 
+                             class="service-img">
+                        <div class="img-overlay">
+                            <span class="img-overlay-text">تنظيف شامل وعميق</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-orange-500 mb-3">
+                            <i class="fas fa-broom ml-2"></i>
+                            خدمات النظافة الشاملة
+                        </h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            تنظيف منازل وشقق وفلل بعد النقل باستخدام مواد آمنة وأجهزة حديثة لنتيجة مثالية.
+                        </p>
+                        <div class="dual-buttons">
+                            <a href="tel:0592425077" class="dual-button btn-call text-white">
+                                <i class="fas fa-phone-alt"></i>
+                                اتصل الآن
+                            </a>
+                            <a href="https://wa.me/966592425077" class="dual-button btn-whatsapp text-white">
+                                <i class="fab fa-whatsapp"></i>
+                                واتساب
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- ملاحظة للاتصال -->
+            <div class="mt-16 text-center fade-in">
+                <div class="inline-flex items-center justify-center bg-white rounded-xl shadow-md px-6 py-4">
+                    <div class="ml-4">
+                        <i class="fas fa-phone-volume text-2xl text-orange-500"></i>
+                    </div>
+                    <div class="text-right">
+                        <p class="font-bold text-gray-800">للحجز والاستفسار على مدار الساعة</p>
+                        <a href="tel:0592425077" class="text-2xl font-bold primary-text text-orange-500 hover:underline">0592425077</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add scroll animation for cards
+            const cards = document.querySelectorAll('.scale-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            cards.forEach(card => {
+                observer.observe(card);
+            });
+            
+            // تأثيرات إضافية عند التمرير
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const fadeObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.2 });
+            
+            fadeElements.forEach(el => {
+                el.style.opacity = 0;
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                fadeObserver.observe(el);
+            });
+            
+            // تأثير عند النقر على الأزرار
+            const buttons = document.querySelectorAll('.dual-button');
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    // تأثير النقر
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 200);
+                    
+                    // تتبع النقر (يمكن إضافة Google Analytics هنا)
+                    const serviceName = this.closest('.card-hover').querySelector('h3').textContent.trim();
+                    console.log(`تم النقر على: ${serviceName} - ${this.textContent.trim()}`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
