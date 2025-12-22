@@ -20,6 +20,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://alsafwa-fast.com">
     <meta property="og:image" content="https://alsafwa-fast.com/images/og-image.jpg">
+    <link rel="icon" type="image/png" href="./asstes/img/8b8056bb-501b-487e-961e-332c2ce2afbf.jpg">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -253,7 +254,7 @@
 
 
     <!-- Header -->
-    <header id="header" class="fixed top-0 w-full z-50 transition-all duration-300 py-4 px-4">
+    <header id="header" class="fixed top-0 lg:top-16  w-full z-50 transition-all duration-300 py-4 px-4">
         <nav class="container mx-auto px-4 md:px-8 lg:px-16">
             <div
                 class="flex justify-between items-center bg-white/90 backdrop-blur-lg rounded-2xl shadow-xl px-6 py-4 border border-white/20">
@@ -318,7 +319,7 @@
 
                 <!-- Phone Number -->
                 <div class="hidden md:flex items-center gap-3">
-                    <a href="tel:0592425077"
+                    <a href="tel:0500677959"
                         class="flex items-center gap-3 bg-[#c9ae55] text-white px-6 py-3 rounded-xl hover:from-blue-700 hover:to-teal-600 transition-all duration-300 shadow-lg hover:shadow-xl group">
                         <div class="relative">
                             <i class="fas fa-phone"></i>
@@ -327,7 +328,7 @@
                             </div>
                         </div>
                         <div class="text-right">
-                            <span class="font-bold text-lg block leading-tight">059 242 5077</span>
+                            <span class="font-bold text-lg block leading-tight">0500677959</span>
                         </div>
                     </a>
                 </div>
@@ -456,150 +457,7 @@
         }
     </style>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const header = document.getElementById('header');
-            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
-
-            // Handle scroll effect
-            let lastScrollTop = 0;
-
-            window.addEventListener('scroll', function () {
-                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-                if (scrollTop > 100) {
-                    header.classList.add('scrolled');
-                    header.style.animation = 'headerSlideDown 0.3s ease forwards';
-                } else {
-                    header.classList.remove('scrolled');
-                }
-
-                // Hide mobile menu on scroll
-                if (mobileMenu.classList.contains('active')) {
-                    mobileMenu.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                }
-
-                lastScrollTop = scrollTop;
-            });
-
-            // Mobile menu toggle
-            mobileMenuBtn.addEventListener('click', function () {
-                mobileMenu.classList.toggle('active');
-
-                if (mobileMenu.classList.contains('active')) {
-                    document.body.style.overflow = 'hidden';
-                } else {
-                    document.body.style.overflow = 'auto';
-                }
-            });
-
-            // Close mobile menu when clicking outside
-            document.addEventListener('click', function (event) {
-                if (!mobileMenu.contains(event.target) &&
-                    !mobileMenuBtn.contains(event.target) &&
-                    mobileMenu.classList.contains('active')) {
-                    mobileMenu.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                }
-            });
-
-            // Smooth scrolling for navigation links
-            navLinks.forEach(link => {
-                link.addEventListener('click', function (e) {
-                    e.preventDefault();
-
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        // Close mobile menu if open
-                        if (mobileMenu.classList.contains('active')) {
-                            mobileMenu.classList.remove('active');
-                            document.body.style.overflow = 'auto';
-                        }
-
-                        // Smooth scroll to target
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 100,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-
-            // Add active state to current section in navigation
-            const sections = document.querySelectorAll('section[id]');
-
-            function highlightNavigation() {
-                const scrollPosition = window.scrollY + 150;
-
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.clientHeight;
-                    const sectionId = section.getAttribute('id');
-
-                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                        // Remove active class from all links
-                        navLinks.forEach(link => {
-                            link.classList.remove('active');
-                        });
-
-                        // Add active class to current link
-                        const currentLink = document.querySelector(`.nav-link[href="#${sectionId}"], .mobile-nav-link[href="#${sectionId}"]`);
-                        if (currentLink) {
-                            currentLink.classList.add('active');
-
-                            // Update underline for desktop
-                            const underline = currentLink.querySelector('.nav-link-underline');
-                            if (underline) {
-                                underline.style.width = '100%';
-                            }
-                        }
-                    }
-                });
-            }
-
-            window.addEventListener('scroll', highlightNavigation);
-
-            // Add hover effect to phone button
-            const phoneBtn = document.querySelector('a[href^="tel:"]');
-            if (phoneBtn) {
-                phoneBtn.addEventListener('mouseenter', function () {
-                    const icon = this.querySelector('i');
-                    if (icon) {
-                        icon.style.transform = 'scale(1.1) rotate(10deg)';
-                        icon.style.transition = 'transform 0.3s ease';
-                    }
-                });
-
-                phoneBtn.addEventListener('mouseleave', function () {
-                    const icon = this.querySelector('i');
-                    if (icon) {
-                        icon.style.transform = 'scale(1) rotate(0deg)';
-                    }
-                });
-            }
-
-            // Add WhatsApp pulse animation
-            const whatsappBtn = document.querySelector('a[href*="whatsapp"]');
-            if (whatsappBtn) {
-                whatsappBtn.classList.add('whatsapp-pulse');
-
-                // Stop animation on hover
-                whatsappBtn.addEventListener('mouseenter', function () {
-                    this.style.animationPlayState = 'paused';
-                });
-
-                whatsappBtn.addEventListener('mouseleave', function () {
-                    this.style.animationPlayState = 'running';
-                });
-            }
-        });
-    </script>
+   
 
 
     <!-- Mobile Menu Overlay -->
@@ -667,34 +525,29 @@
                         <span class="flex-1 text-right text-gray-700">الأسئلة الشائعة</span>
                     </a>
 
-                    <a href="#contact" class="mobile-menu-link group">
-                        <div class="w-8 h-8 flex items-center justify-center rounded-lg bg-gray-100">
-                            <i class="fas fa-headset text-gray-600"></i>
-                        </div>
-                        <span class="flex-1 text-right text-gray-700">اتصل بنا</span>
-                    </a>
+
                 </nav>
 
                 <!-- Contact Info -->
                 <div class="mt-8 pt-6 border-t border-gray-100">
                     <div class="space-y-3">
-                        <a href="tel:0592425077" class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                        <a href="tel:0500677959" class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
                             <div class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center">
                                 <i class="fas fa-phone text-white"></i>
                             </div>
                             <div class="text-right flex-1">
                                 <p class="text-sm text-gray-600">اتصل بنا</p>
-                                <p class="font-medium text-gray-900">059 242 5077</p>
+                                <p class="font-medium text-gray-900">0500677959</p>
                             </div>
                         </a>
 
-                        <a href="https://wa.me/966592425077" class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                        <a href="https://wa.me/966551900150" class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
                             <div class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center">
                                 <i class="fab fa-whatsapp text-white"></i>
                             </div>
                             <div class="text-right flex-1">
                                 <p class="text-sm text-gray-600">واتساب</p>
-                                <p class="font-medium text-gray-900">966 59 242 5077</p>
+                                <p class="font-medium text-gray-900">966551900150</p>
                             </div>
                         </a>
                     </div>
@@ -704,12 +557,12 @@
             <!-- Quick Actions -->
             <div class="absolute bottom-0 left-0 right-0 p-5 bg-white border-t border-gray-100">
                 <div class="grid grid-cols-2 gap-3">
-                    <a href="tel:0592425077"
+                    <a href="tel:0500677959"
                         class="bg-gray-800 text-white py-3 px-4 rounded-lg text-center hover:bg-gray-900 transition-colors">
                         <i class="fas fa-phone ml-1"></i>
                         <span>اتصل</span>
                     </a>
-                    <a href="https://wa.me/966592425077"
+                    <a href="https://wa.me/966551900150"
                         class="bg-gray-700 text-white py-3 px-4 rounded-lg text-center hover:bg-gray-800 transition-colors">
                         <i class="fab fa-whatsapp ml-1"></i>
                         <span>واتساب</span>
@@ -914,9 +767,9 @@
     <!-- Hero Section -->
     <section id="home" class="relative min-h-screen px-4 md:px-8 lg:px-16 flex items-center justify-center parallax"
         style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('./asstes/img/pexels-tima-miroshnichenko-6169641.jpg');">
-        <div class="container mx-auto px-4 text-center text-white pt-24  " data-aos="fade-up">
+        <div class="container mx-auto px-4 text-center text-white pt-24" data-aos="fade-up">
 
-            <h1 class="text-4xl md:text-5xl  font-bold mb-6 pt-2 text-shadow">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 pt-2 text-shadow">
                 نقل العفش والنظافة باحترافية في جدة
             </h1>
 
@@ -931,7 +784,7 @@
                     <i class="fas fa-rocket"></i>
                     اطلب خدمتك الآن
                 </a>
-                <a href="tel:0592425077"
+                <a href="tel:0500677959"
                     class="bg-[#c9ae55] text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-[#c9ae65] transition inline-flex items-center gap-3">
                     <i class="fas fa-phone-alt"></i>
                     اتصل الآن
@@ -939,7 +792,7 @@
             </div>
 
             <!-- Stats -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16" id="stats-counter">
                 <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6" data-aos="fade-up" data-aos-delay="100">
                     <h3 class="text-4xl font-bold text-[#c9ae55] counter" data-target="5000">0</h3>
                     <p class="text-lg mt-2">عميل راضٍ</p>
@@ -964,6 +817,53 @@
             <i class="fas fa-chevron-down text-white text-3xl"></i>
         </div>
     </section>
+
+    <!-- Add this JavaScript code before closing body tag -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Counter function with animation
+            function animateCounter(element, target) {
+                let current = 0;
+                const increment = target / 100; // Adjust speed here
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        element.textContent = target;
+                        clearInterval(timer);
+                    } else {
+                        element.textContent = Math.floor(current);
+                    }
+                }, 20); // Adjust timing here
+            }
+
+            // Intersection Observer for scroll trigger
+            const observerOptions = {
+                threshold: 0.5 // Trigger when 50% of element is visible
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Start counters
+                        const counters = document.querySelectorAll('.counter');
+                        counters.forEach(counter => {
+                            const target = parseInt(counter.getAttribute('data-target'));
+                            animateCounter(counter, target);
+                        });
+                        
+                        // Stop observing after animation starts
+                        observer.disconnect();
+                    }
+                });
+            }, observerOptions);
+
+            // Observe the stats section
+            const statsSection = document.getElementById('stats-counter');
+            if (statsSection) {
+                observer.observe(statsSection);
+            }
+        });
+    </script>
 
 
 
@@ -1052,13 +952,13 @@
 
                     <!-- CTA Buttons -->
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="tel:0592425077" class="btn-primary animate-pulse-glow">
+                        <a href="tel:0500677959" class="btn-primary animate-pulse-glow">
                             <div class="btn-icon">
                                 <i class="fas fa-phone-volume"></i>
                             </div>
                             <div>
                                 <div class="btn-text">اتصل بنا الآن</div>
-                                <div class="btn-subtext">0592425077</div>
+                                <div class="btn-subtext">0500677959</div>
                             </div>
                         </a>
                         <a href="#services" class="btn-secondary">
@@ -1853,197 +1753,348 @@
 
             <!-- الخدمات -->
             <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-animation">
-                <!-- خدمة 1 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover scale-in">
-                    <div class="img-container">
-                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                            alt="نقل عفش المنازل" class="service-img">
-                        <div class="img-overlay">
-                            <span class="img-overlay-text">نقل آمن وسريع للمنازل</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-[#c9ae55] mb-3">
-                            <i class="fas fa-truck ml-2"></i>
-                            نقل عفش المنازل
-                        </h3>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                            خدمة نقل عفش متكاملة للمنازل والشقق في جدة مع فك وتركيب وتغليف احترافي للحفاظ على الأثاث.
-                        </p>
-                        <div class="dual-buttons">
-                            <a href="tel:0592425077"
-                                class="dual-button bg-[#c9ae55] text-white hover:from-blue-700 hover:to-blue-800">
-                                <i class="fas fa-phone-alt"></i>
-                                اتصل الآن
-                            </a>
-                            <a href="https://wa.me/966592425077"
-                                class="dual-button bg-gradient-to-r from-teal-500 to-teal-600 text-white hover:from-teal-600 hover:to-teal-700">
-                                <i class="fab fa-whatsapp"></i>
-                                واتساب
-                            </a>
-                        </div>
-                    </div>
-                </div>
+              <!-- خدمة نقل عفش المنازل -->
+<div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover scale-in">
+    <div class="img-container">
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1470&q=80"
+            alt="Home Furniture Moving" class="service-img">
+        <div class="img-overlay">
+            <span class="img-overlay-text">نقل آمن وسريع للمنازل</span>
+        </div>
+    </div>
 
-                <!-- خدمة 2 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover scale-in">
-                    <div class="img-container">
-                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1558&q=80"
-                            alt="فك وتركيب الأثاث" class="service-img">
-                        <div class="img-overlay">
-                            <span class="img-overlay-text">فك وتركيب احترافي</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-[#c9ae55] mb-3">
-                            <i class="fas fa-tools ml-2"></i>
-                            فك وتركيب الأثاث
-                        </h3>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                            فريق متخصص في فك وتركيب جميع أنواع الأثاث بدقة عالية لضمان إعادة التركيب بدون أي تلف.
-                        </p>
-                        <div class="dual-buttons">
-                            <a href="tel:0592425077"
-                                class="dual-button bg-[#c9ae55] text-white hover:from-blue-700 hover:to-blue-800">
-                                <i class="fas fa-phone-alt"></i>
-                                اتصل الآن
-                            </a>
-                            <a href="https://wa.me/966592425077"
-                                class="dual-button bg-gradient-to-r from-teal-500 to-teal-600 text-white hover:from-teal-600 hover:to-teal-700">
-                                <i class="fab fa-whatsapp"></i>
-                                واتساب
-                            </a>
-                        </div>
-                    </div>
-                </div>
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-[#c9ae55] mb-3">
+            <i class="fas fa-truck ml-2"></i>
+            نقل عفش المنازل
+        </h3>
 
-                <!-- خدمة 3 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover scale-in">
-                    <div class="img-container">
-                        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80"
-                            alt="خدمات النظافة" class="service-img">
-                        <div class="img-overlay">
-                            <span class="img-overlay-text">تنظيف شامل وعميق</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-[#c9ae55] mb-3">
-                            <i class="fas fa-broom ml-2"></i>
-                            خدمات النظافة الشاملة
-                        </h3>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                            تنظيف منازل وشقق وفلل بعد النقل باستخدام مواد آمنة وأجهزة حديثة لنتيجة مثالية.
-                        </p>
-                        <div class="dual-buttons">
-                            <a href="tel:0592425077"
-                                class="dual-button bg-[#c9ae55] text-white hover:from-blue-700 hover:to-blue-800">
-                                <i class="fas fa-phone-alt"></i>
-                                اتصل الآن
-                            </a>
-                            <a href="https://wa.me/966592425077"
-                                class="dual-button bg-gradient-to-r from-teal-500 to-teal-600 text-white hover:from-teal-600 hover:to-teal-700">
-                                <i class="fab fa-whatsapp"></i>
-                                واتساب
-                            </a>
-                        </div>
-                    </div>
-                </div>
+        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+            خدمة نقل عفش متكاملة للمنازل والشقق مع فك وتركيب وتغليف احترافي للحفاظ على الأثاث.
+        </p>
 
-                <!-- خدمة 4 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover scale-in">
-                    <div class="img-container">
-                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1473&q=80"
-                            alt="نقل مكاتب" class="service-img">
-                        <div class="img-overlay">
-                            <span class="img-overlay-text">نقل مكاتب محترف</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-[#c9ae55] mb-3">
-                            <i class="fas fa-building ml-2"></i>
-                            نقل مكاتب وشركات
-                        </h3>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                            نقل كامل للمكاتب والشركات مع الحفاظ على الأجهزة والمعدات المكتبية بنظام متكامل.
-                        </p>
-                        <div class="dual-buttons">
-                            <a href="tel:0592425077"
-                                class="dual-button bg-[#c9ae55] text-white hover:from-blue-700 hover:to-blue-800">
-                                <i class="fas fa-phone-alt"></i>
-                                اتصل الآن
-                            </a>
-                            <a href="https://wa.me/966592425077"
-                                class="dual-button bg-gradient-to-r from-teal-500 to-teal-600 text-white hover:from-teal-600 hover:to-teal-700">
-                                <i class="fab fa-whatsapp"></i>
-                                واتساب
-                            </a>
-                        </div>
-                    </div>
-                </div>
+        <!-- مميزات الخدمة -->
+        <ul class="space-y-2 text-sm text-gray-600 mb-5">
+            <li class="flex items-center gap-2">
+                <i class="fas fa-check-circle text-green-500"></i>
+                تغليف احترافي لحماية كاملة للأثاث
+            </li>
+            <li class="flex items-center gap-2">
+                <i class="fas fa-tools text-[#c9ae55]"></i>
+                فك وتركيب جميع أنواع الأثاث
+            </li>
+            <li class="flex items-center gap-2">
+                <i class="fas fa-user-shield text-blue-500"></i>
+                عمالة مدرّبة وخبرة عالية
+            </li>
+            <li class="flex items-center gap-2">
+                <i class="fas fa-clock text-orange-500"></i>
+                سرعة في التنفيذ والالتزام بالمواعيد
+            </li>
+        </ul>
 
-                <!-- خدمة 5 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover scale-in">
-                    <div class="img-container">
-                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                            alt="تخزين عفش" class="service-img">
-                        <div class="img-overlay">
-                            <span class="img-overlay-text">تخزين آمن ومؤقت</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-[#c9ae55] mb-3">
-                            <i class="fas fa-warehouse ml-2"></i>
-                            تخزين عفش مؤقت
-                        </h3>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                            مستودعات آمنة ومراقبة لتخزين عفشك مؤقتاً مع ضمان الحفاظ على جميع الممتلكات.
-                        </p>
-                        <div class="dual-buttons">
-                            <a href="tel:0592425077"
-                                class="dual-button bg-[#c9ae55] text-white hover:from-blue-700 hover:to-blue-800">
-                                <i class="fas fa-phone-alt"></i>
-                                اتصل الآن
-                            </a>
-                            <a href="https://wa.me/966592425077"
-                                class="dual-button bg-gradient-to-r from-teal-500 to-teal-600 text-white hover:from-teal-600 hover:to-teal-700">
-                                <i class="fab fa-whatsapp"></i>
-                                واتساب
-                            </a>
-                        </div>
-                    </div>
-                </div>
+        <!-- أزرار الاتصال -->
+        <div class="dual-buttons">
+            <a href="tel:0500677959"
+                class="dual-button bg-[#c9ae55] text-white hover:from-blue-700 hover:to-blue-800">
+                <i class="fas fa-phone-alt"></i>
+                اتصل الآن
+            </a>
+            <a href="https://wa.me/966551900150"
+                class="dual-button bg-green-600 text-white hover:from-teal-600 hover:to-teal-700">
+                <i class="fab fa-whatsapp"></i>
+                واتساب
+            </a>
+        </div>
+    </div>
+</div>
 
-                <!-- خدمة 6 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover scale-in">
-                    <div class="img-container">
-                        <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                            alt="تنظيف بعد التشطيب" class="service-img">
-                        <div class="img-overlay">
-                            <span class="img-overlay-text">تنظيف بعد التشطيب</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-[#c9ae55] mb-3">
-                            <i class="fas fa-spray-can ml-2"></i>
-                            تنظيف بعد التشطيب
-                        </h3>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                            تنظيف شامل للمنازل الجديدة بعد التشطيب مع إزالة جميع مخلفات البناء والتلميع النهائي.
-                        </p>
-                        <div class="dual-buttons">
-                            <a href="tel:0592425077"
-                                class="dual-button bg-[#c9ae55] text-white hover:from-blue-700 hover:to-blue-800">
-                                <i class="fas fa-phone-alt"></i>
-                                اتصل الآن
-                            </a>
-                            <a href="https://wa.me/966592425077"
-                                class="dual-button bg-gradient-to-r from-teal-500 to-teal-600 text-white hover:from-teal-600 hover:to-teal-700">
-                                <i class="fab fa-whatsapp"></i>
-                                واتساب
-                            </a>
-                        </div>
-                    </div>
-                </div>
+
+<!-- خدمة الشحن الدولي -->
+<div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover scale-in">
+    <div class="img-container">
+        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c7f5b8?auto=format&fit=crop&w=1558&q=80"
+            alt="International Shipping" class="service-img">
+        <div class="img-overlay">
+            <span class="img-overlay-text">شحن دولي سريع وآمن</span>
+        </div>
+    </div>
+
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-[#c9ae55] mb-3">
+            <i class="fas fa-globe ml-2"></i>
+            الشحن الدولي
+        </h3>
+
+        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+            نوفر خدمات شحن دولي آمنة وسريعة لجميع الدول مع متابعة مستمرة وضمان وصول الشحنة بحالة ممتازة.
+        </p>
+
+        <!-- مميزات الشحن الدولي -->
+        <ul class="space-y-2 text-sm text-gray-600 mb-5">
+            <li class="flex items-center gap-2">
+                <i class="fas fa-plane text-blue-500"></i>
+                شحن جوي وبحري حسب احتياج العميل
+            </li>
+            <li class="flex items-center gap-2">
+                <i class="fas fa-box-open text-[#c9ae55]"></i>
+                تغليف دولي مطابق لمعايير الشحن
+            </li>
+            <li class="flex items-center gap-2">
+                <i class="fas fa-file-invoice text-green-500"></i>
+                تخليص جمركي ومتابعة الأوراق
+            </li>
+            <li class="flex items-center gap-2">
+                <i class="fas fa-map-marked-alt text-orange-500"></i>
+                تتبع الشحنة حتى باب العميل
+            </li>
+        </ul>
+
+        <!-- أزرار الاتصال -->
+        <div class="dual-buttons">
+            <a href="tel:0500677959"
+                class="dual-button bg-[#c9ae55] text-white hover:from-blue-700 hover:to-blue-800">
+                <i class="fas fa-phone-alt"></i>
+                اتصل الآن
+            </a>
+            <a href="https://wa.me/966551900150"
+                class="dual-button bg-green-600 text-white hover:from-teal-600 hover:to-teal-700">
+                <i class="fab fa-whatsapp"></i>
+                واتساب
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<!-- خدمة النظافة العامة -->
+<div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover scale-in">
+    <div class="img-container">
+        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1472&q=80"
+            alt="General Cleaning Services" class="service-img">
+        <div class="img-overlay">
+            <span class="img-overlay-text">تنظيف احترافي وعميق
+</span>
+        </div>
+    </div>
+
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-[#c9ae55] mb-3">
+            <i class="fas fa-broom ml-2"></i>
+            خدمات النظافة العامة
+        </h3>
+
+        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+            نقدم خدمات نظافة شاملة للمنازل والفلل والمكاتب باستخدام مواد آمنة ومعدات حديثة لضمان أفضل النتائج.
+        </p>
+
+        <!-- مميزات النظافة -->
+        <ul class="space-y-2 text-sm text-gray-600 mb-5">
+            <li class="flex items-center gap-2">
+                <i class="fas fa-soap text-blue-500"></i>
+                تنظيف شامل للأرضيات والأسطح
+            </li>
+            <li class="flex items-center gap-2">
+                <i class="fas fa-spray-can-sparkles text-green-500"></i>
+                تعقيم وتطهير باستخدام مواد آمنة
+            </li>
+            <li class="flex items-center gap-2">
+                <i class="fas fa-home text-[#c9ae55]"></i>
+                تنظيف بعد النقل أو التشطيب
+            </li>
+            <li class="flex items-center gap-2">
+                <i class="fas fa-clock text-orange-500"></i>
+                سرعة في التنفيذ مع جودة عالية
+            </li>
+        </ul>
+
+        <!-- أزرار الاتصال -->
+        <div class="dual-buttons">
+            <a href="tel:0500677959"
+                class="dual-button bg-[#c9ae55] text-white hover:from-blue-700 hover:to-blue-800">
+                <i class="fas fa-phone-alt"></i>
+                اتصل الآن
+            </a>
+            <a href="https://wa.me/966551900150"
+                class="dual-button bg-green-600 text-white hover:from-teal-600 hover:to-teal-700">
+                <i class="fab fa-whatsapp"></i>
+                واتساب
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<!-- خدمة نقل أثاث المنازل والفلل -->
+<div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover scale-in">
+    <div class="img-container">
+        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1473&q=80"
+            alt="Home & Villa Furniture Moving" class="service-img">
+        <div class="img-overlay">
+            <span class="img-overlay-text">خدمة نقل منازل آمنة واحترافية</span>
+        </div>
+    </div>
+
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-[#c9ae55] mb-3">
+            <i class="fas fa-couch ml-2"></i>
+            نقل أثاث المنازل والفلل
+        </h3>
+
+        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+            نقدم خدمات نقل احترافية لأثاث المنازل والفلل مع عناية كاملة بجميع القطع وضمان النقل الآمن بدون أي تلف.
+        </p>
+
+        <!-- مميزات الخدمة -->
+        <ul class="space-y-2 text-sm text-gray-600 mb-5">
+            <li class="flex items-center gap-2">
+                <i class="fas fa-box text-[#c9ae55]"></i>
+                تغليف احترافي لحماية الأثاث
+            </li>
+            <li class="flex items-center gap-2">
+                <i class="fas fa-tools text-blue-500"></i>
+                فك وتركيب جميع أنواع الأثاث
+            </li>
+            <li class="flex items-center gap-2">
+                <i class="fas fa-truck-moving text-green-500"></i>
+                سيارات مجهزة للنقل الآمن
+            </li>
+            <li class="flex items-center gap-2">
+                <i class="fas fa-shield-alt text-orange-500"></i>
+                ضمان سلامة الأثاث حتى التسليم
+            </li>
+        </ul>
+
+        <!-- أزرار الاتصال -->
+        <div class="dual-buttons">
+            <a href="tel:0500677959"
+                class="dual-button bg-[#c9ae55] text-white hover:from-blue-700 hover:to-blue-800">
+                <i class="fas fa-phone-alt"></i>
+                اتصل الآن
+            </a>
+            <a href="https://wa.me/966551900150"
+                class="dual-button bg-green-600 text-white hover:from-teal-600 hover:to-teal-700">
+                <i class="fab fa-whatsapp"></i>
+                واتساب
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<!-- خدمة تنظيف وعزل الخزنات -->
+<div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover scale-in">
+    <div class="img-container">
+        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1470&q=80"
+            alt="Storage Cleaning & Insulation" class="service-img">
+        <div class="img-overlay">
+            <span class="img-overlay-text">تخزين آمن وصحي</span>
+        </div>
+    </div>
+
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-[#c9ae55] mb-3">
+            <i class="fas fa-warehouse ml-2"></i>
+            تنظيف وعزل الخزنات
+        </h3>
+
+        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+            خدمات تنظيف وتعقيم الخزنات وتخزين الأثاث بشكل مؤقت مع ضمان حماية كاملة لكل الممتلكات.
+        </p>
+
+        <!-- مميزات الخدمة -->
+        <ul class="space-y-2 text-sm text-gray-600 mb-5">
+            <li class="flex items-center gap-2">
+                <i class="fas fa-shield-alt text-green-500"></i>
+                حماية كاملة للأثاث والممتلكات
+            </li>
+            <li class="flex items-center gap-2">
+                <i class="fas fa-broom text-blue-500"></i>
+                تنظيف شامل وتعقيم الخزنات
+            </li>
+            <li class="flex items-center gap-2">
+                <i class="fas fa-box text-[#c9ae55]"></i>
+                تخزين مؤقت آمن ومراقب
+            </li>
+            <li class="flex items-center gap-2">
+                <i class="fas fa-clock text-orange-500"></i>
+                سهولة الوصول عند الحاجة واستلام سريع
+            </li>
+        </ul>
+
+        <!-- أزرار الاتصال -->
+        <div class="dual-buttons">
+            <a href="tel:0500677959"
+                class="dual-button bg-[#c9ae55] text-white hover:from-blue-700 hover:to-blue-800">
+                <i class="fas fa-phone-alt"></i>
+                اتصل الآن
+            </a>
+            <a href="https://wa.me/966551900150"
+                class="dual-button bg-green-600 text-white hover:from-teal-600 hover:to-teal-700">
+                <i class="fab fa-whatsapp"></i>
+                واتساب
+            </a>
+        </div>
+    </div>
+</div>
+
+
+               <!-- خدمة التنظيف بالبخار بعد التشطيب -->
+<div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover scale-in">
+    <div class="img-container">
+        <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?auto=format&fit=crop&w=1470&q=80"
+            alt="Steam Cleaning After Construction" class="service-img">
+        <div class="img-overlay">
+            <span class="img-overlay-text">التنظيف بالبخار العميق</span>
+        </div>
+    </div>
+
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-[#c9ae55] mb-3">
+            <i class="fas fa-bolt ml-2"></i>
+            التنظيف بالبخار بعد التشطيب
+        </h3>
+
+        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+            تنظيف شامل للمنازل الجديدة بعد التشطيب باستخدام البخار لإزالة جميع مخلفات البناء وتعقيم شامل للأرضيات والأسطح.
+        </p>
+
+        <!-- مميزات الخدمة -->
+        <ul class="space-y-2 text-sm text-gray-600 mb-5">
+            <li class="flex items-center gap-2">
+                <i class="fas fa-water text-blue-500"></i>
+                تنظيف عميق بالبخار لجميع الأسطح
+            </li>
+            <li class="flex items-center gap-2">
+                <i class="fas fa-broom text-green-500"></i>
+                إزالة مخلفات البناء والغبار
+            </li>
+            <li class="flex items-center gap-2">
+                <i class="fas fa-smile-beam text-[#c9ae55]"></i>
+                تعقيم وتلميع الأرضيات لضمان نظافة مثالية
+            </li>
+            <li class="flex items-center gap-2">
+                <i class="fas fa-clock text-orange-500"></i>
+                تنفيذ سريع واحترافي مع الالتزام بالمواعيد
+            </li>
+        </ul>
+
+        <!-- أزرار الاتصال -->
+        <div class="dual-buttons">
+            <a href="tel:0500677959"
+                class="dual-button bg-[#c9ae55] text-white hover:from-blue-700 hover:to-blue-800">
+                <i class="fas fa-phone-alt"></i>
+                اتصل الآن
+            </a>
+            <a href="https://wa.me/966551900150"
+                class="dual-button bg-green-600 text-white hover:from-teal-600 hover:to-teal-700">
+                <i class="fab fa-whatsapp"></i>
+                واتساب
+            </a>
+        </div>
+    </div>
+</div>
+
             </div>
 
             <!-- ملاحظة للاتصال -->
@@ -2057,8 +2108,8 @@
                     </div>
                     <div class="text-center mr-4">
                         <p class="font-bold text-gray-900 text-lg">للحجز والاستفسار على مدار الساعة</p>
-                        <a href="tel:0592425077"
-                            class="text-2xl font-bold text-[#c9ae55]  transition-colors">0592425077</a>
+                        <a href="tel:0500677959"
+                            class="text-2xl font-bold text-[#c9ae55]  transition-colors">0500677959</a>
                     </div>
                 </div>
             </div>
@@ -2437,18 +2488,18 @@
 
                             <!-- Contact Options -->
                             <div class="grid grid-cols-2 gap-4 mb-4">
-                                <a href="tel:0592425077"
+                                <a href="tel:0500677959"
                                     class="contact-option bg-[#c9ae55] hover:from-blue-600 hover:to-blue-700">
                                     <div class="contact-icon">
                                         <i class="fas fa-phone-alt text-lg"></i>
                                     </div>
                                     <div>
                                         <p class="font-medium text-sm">اتصال هاتفي</p>
-                                        <p class="text-xs opacity-90">0592425077</p>
+                                        <p class="text-xs opacity-90">0500677959</p>
                                     </div>
                                 </a>
-                                <a href="https://wa.me/966592425077"
-                                    class="contact-option bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700">
+                                <a href="https://wa.me/966551900150"
+                                    class="contact-option bg-green-600 hover:from-teal-600 hover:to-teal-700">
                                     <div class="contact-icon">
                                         <i class="fab fa-whatsapp text-lg"></i>
                                     </div>
@@ -2687,17 +2738,17 @@
 
                         <!-- CTA Buttons -->
                         <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                            <a href="tel:0592425077"
+                            <a href="tel:0500677959"
                                 class="cta-btn-primary bg-white text-[#c9ae55] hover:bg-gray-100 hover:scale-105">
                                 <div class="cta-btn-icon">
                                     <i class="fas fa-phone-volume"></i>
                                 </div>
                                 <div>
                                     <p class="font-bold text-sm">اتصل الآن</p>
-                                    <p class="text-xs opacity-90">0592425077</p>
+                                    <p class="text-xs opacity-90">0500677959</p>
                                 </div>
                             </a>
-                            <a href="https://wa.me/966592425077"
+                            <a href="https://wa.me/966551900150"
                                 class="cta-btn-secondary bg-black/20 text-white hover:bg-black/30 hover:scale-105">
                                 <div class="cta-btn-icon">
                                     <i class="fab fa-whatsapp"></i>
@@ -3282,11 +3333,11 @@
                         </p>
 
                         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                            <a href="tel:0592425077" class="why-us-cta-primary animate-pulse-glow">
+                            <a href="tel:0500677959" class="why-us-cta-primary animate-pulse-glow">
                                 <i class="fas fa-phone-volume ml-2"></i>
-                                اتصل الآن: 0592425077
+                                اتصل الآن: 0500677959
                             </a>
-                            <a href="https://wa.me/966592425077" class="why-us-cta-secondary">
+                            <a href="https://wa.me/966551900150" class="why-us-cta-secondary">
                                 <i class="fab fa-whatsapp ml-2"></i>
                                 محادثة واتساب فورية
                             </a>
@@ -4067,11 +4118,11 @@
                         </p>
 
                         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                            <a href="tel:0592425077" class="btn-primary-large animate-pulse-glow">
+                            <a href="tel:0500677959" class="btn-primary-large animate-pulse-glow">
                                 <i class="fas fa-phone-volume ml-2"></i>
-                                اتصل الآن: 0592425077
+                                اتصل الآن: 0500677959
                             </a>
-                            <a href="https://wa.me/966592425077" class="btn-secondary-large">
+                            <a href="https://wa.me/966551900150" class="btn-secondary-large">
                                 <i class="fab fa-whatsapp ml-2"></i>
                                 محادثة واتساب
                             </a>
@@ -4208,7 +4259,7 @@
 
         .stat-card:hover {
             transform: translateY(-5px);
-            border-color: #3b82f6;
+            border-color: #c9ae55;
             box-shadow: 0 10px 30px rgba(59, 130, 246, 0.1);
         }
 
@@ -4260,7 +4311,7 @@
         }
 
         .filter-btn.active {
-            background: linear-gradient(135deg, #3b82f6, #0d9488);
+            background: #c9ae55;
             border-color: transparent;
             color: white;
             box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
@@ -5060,7 +5111,7 @@
                                         </div>
                                         <div>
                                             <div class="contact-title">اتصال مباشر</div>
-                                            <div class="contact-number">0592425077</div>
+                                            <div class="contact-number">0500677959</div>
                                         </div>
                                     </div>
 
@@ -5082,7 +5133,7 @@
                                         </div>
                                         <div>
                                             <div class="contact-title">واتساب مباشر</div>
-                                            <div class="contact-number">966592425077</div>
+                                            <div class="contact-number">966551900150</div>
                                         </div>
                                     </div>
 
@@ -5123,11 +5174,11 @@
                         </p>
 
                         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                            <a href="tel:0592425077" class="faq-cta-primary animate-pulse-glow">
+                            <a href="tel:0500677959" class="faq-cta-primary animate-pulse-glow">
                                 <i class="fas fa-phone-volume ml-2"></i>
-                                اتصل الآن: 0592425077
+                                اتصل الآن: 0500677959
                             </a>
-                            <a href="https://wa.me/966592425077" class="faq-cta-secondary">
+                            <a href="https://wa.me/966551900150" class="faq-cta-secondary">
                                 <i class="fab fa-whatsapp ml-2"></i>
                                 محادثة واتساب فورية
                             </a>
@@ -5775,7 +5826,7 @@
                             class="social-icon bg-gradient-to-br from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="https://wa.me/966592425077"
+                        <a href="https://wa.me/966551900150"
                             class="social-icon bg-gradient-to-br from-green-500 to-green-600 hover:from-green-600 hover:to-green-700">
                             <i class="fab fa-whatsapp"></i>
                         </a>
@@ -5902,8 +5953,8 @@
                             </div>
                             <div>
                                 <p class="text-gray-400 text-sm">اتصل بنا</p>
-                                <a href="tel:0592425077"
-                                    class="text-white font-bold hover:text-blue-400 transition-colors">0592425077</a>
+                                <a href="tel:0500677959"
+                                    class="text-white font-bold hover:text-blue-400 transition-colors">0500677959</a>
                             </div>
                         </div>
 
@@ -5913,8 +5964,8 @@
                             </div>
                             <div>
                                 <p class="text-gray-400 text-sm">واتساب</p>
-                                <a href="https://wa.me/966592425077"
-                                    class="text-white font-bold hover:text-green-400 transition-colors">966592425077</a>
+                                <a href="https://wa.me/966551900150"
+                                    class="text-white font-bold hover:text-green-400 transition-colors">966551900150</a>
                             </div>
                         </div>
 
@@ -5994,7 +6045,7 @@
                 <!-- Copyright -->
                 <div class="mt-6 text-center">
                     <p class="text-gray-500 text-sm">
-                        الصفوة السريعة - نقل عفش وتنظيف بجدة | خدمة عملاء: 0592425077
+                        الصفوة السريعة - نقل عفش وتنظيف بجدة | خدمة عملاء: 0500677959
                     </p>
                     <p class="text-gray-600 text-xs mt-2">
                         جدة - المملكة العربية السعودية
@@ -6259,13 +6310,13 @@
     </script>
 
     <!-- Chat Button -->
-    <a href="https://wa.me/966500000000"
+    <a href="https://wa.me/966551900150"
         class="chat-button bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center hover:scale-110 transition-transform">
         <i class="fab fa-whatsapp text-white text-3xl"></i>
     </a>
 
     <!-- زر الاتصال العائم -->
-    <a href="tel:01000000000"
+    <a href="tel:0500677959"
         class=" chat-button right-4 bottom-4 p-5 bg-blue-500 mb-[15px] text-white w-14 h-14 rounded-full shadow-xl flex items-center justify-center text-2xl hover:bg-blue-600 transition">
 
         <i class="fas fa-phone"></i>
