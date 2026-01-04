@@ -3,392 +3,638 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>خدمات الصفوة السريعة</title>
+    <title>مدونة سمارت كول - نصائح عن تنظيف مجاري الهواء للمكيفات بجدة</title>
+    <meta name="description" content="مدونة سمارت كول - مقالات ونصائح عن تنظيف مجاري الهواء للمكيفات بجدة. تعرف على فوائد تنظيف دكت المكيفات المركزي وأسعار الخدمات.">
+    <meta name="keywords" content="تنظيف مجاري الهواء جدة, تنظيف مجاري الهواء للمكيفات جدة, شركة تنظيف مجاري الهواء جدة, أفضل شركة تنظيف مجاري الهواء بجدة, أرخص شركة تنظيف مجاري الهواء جدة, أسعار تنظيف مجاري الهواء جدة, عروض تنظيف مجاري الهواء جدة, تنظيف دكت المكيفات جدة, تنظيف دكت المكيف المركزي جدة, شركة تنظيف دكت المكيفات جدة, أفضل شركة تنظيف دكت التكييف جدة, أرخص شركة تنظيف دكت المكيفات">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        :root {
-            --primary-color: #ff6b35;
-            --whatsapp-color: #25D366;
-            --call-color: #4285F4;
-        }
-        
-        .primary {
-            background: linear-gradient(135deg, #ff6b35 0%, #ff8e53 100%);
-        }
-        
-        .btn-call {
-            background-color: var(--call-color);
-            transition: all 0.3s ease;
-        }
-        
-        .btn-call:hover {
-            background-color: #3367d6;
-            transform: translateY(-2px);
-        }
-        
-        .btn-whatsapp {
-            background-color: var(--whatsapp-color);
-            transition: all 0.3s ease;
-        }
-        
-        .btn-whatsapp:hover {
-            background-color: #128C7E;
-            transform: translateY(-2px);
-        }
-        
-        .card-hover {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-        
-        .scale-in {
-            animation: scaleIn 0.6s ease-out forwards;
-            animation-play-state: paused;
-        }
-        
-        @keyframes scaleIn {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        
-        .fade-in {
-            animation: fadeIn 1s ease-out forwards;
-        }
-        
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .stagger-animation > *:nth-child(1) { animation-delay: 0.1s; }
-        .stagger-animation > *:nth-child(2) { animation-delay: 0.3s; }
-        .stagger-animation > *:nth-child(3) { animation-delay: 0.5s; }
-        
-        .floating-shapes {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            overflow: hidden;
-            z-index: 1;
-        }
-        
-        .floating-shape {
-            position: absolute;
-            border-radius: 50%;
-            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(255, 142, 83, 0.05) 100%);
-            animation: float 8s infinite ease-in-out;
-        }
-        
-        .floating-shape:nth-child(2) {
-            animation-delay: 1s;
-            animation-duration: 10s;
-        }
-        
-        .floating-shape:nth-child(3) {
-            animation-delay: 2s;
-            animation-duration: 12s;
-        }
-        
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-20px) rotate(180deg);
-            }
-        }
-        
-        /* تأثيرات متحركة للصور */
-        .img-container {
-            position: relative;
-            overflow: hidden;
-            height: 240px;
-        }
-        
-        .service-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: all 0.6s ease;
-        }
-        
-        .img-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            padding-bottom: 20px;
-        }
-        
-        .img-overlay-text {
-            color: white;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transform: translateY(20px);
-            transition: transform 0.4s ease;
-        }
-        
-        .card-hover:hover .service-img {
-            transform: scale(1.1);
-        }
-        
-        .card-hover:hover .img-overlay {
-            opacity: 1;
-        }
-        
-        .card-hover:hover .img-overlay-text {
-            transform: translateY(0);
-        }
-        
-        /* أزرار مزدوجة */
-        .dual-buttons {
-            display: flex;
-            gap: 10px;
-        }
-        
-        .dual-button {
-            flex: 1;
-            padding: 12px;
-            border-radius: 10px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-        }
-        
-        .dual-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 7px 14px rgba(0, 0, 0, 0.15);
-        }
-    </style>
 </head>
 <body class="font-sans">
-    
-    <!-- خدمات الصفوة السريعة -->
-    <section id="services" class="py-20 bg-gray-50 relative overflow-hidden px-4 md:px-8 lg:px-16">
-
-        <!-- الأشكال العائمة -->
-        <div class="floating-shapes">
-            <div class="floating-shape w-64 h-64 -top-32 -right-32"></div>
-            <div class="floating-shape w-48 h-48 bottom-0 left-0"></div>
-            <div class="floating-shape w-32 h-32 top-1/2 left-1/4"></div>
+    <!-- Blog Section -->
+    <section id="blog" class="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50/20 relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-[#c9ae55]/5 to-teal-500/5 rounded-full -translate-y-48 translate-x-48"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-br from-[#c9ae55]/5 to-teal-500/5 rounded-full translate-y-48 -translate-x-48"></div>
         </div>
-        
-        <div class="container mx-auto px-4 lg:px-8 relative z-10">
 
-            <!-- العنوان -->
-            <div class="text-center mb-16 fade-in">
-                <div class="mb-8">
-                    <div class="inline-flex items-center primary text-white backdrop-blur-sm rounded-full px-6 py-3 border border-white/20 mb-6">
-                        <div class="w-16 h-16 bg-white rounded-lg p-2 flex items-center justify-center ml-3">
-                            <div class="w-full h-full primary rounded-lg flex items-center justify-center text-xl font-bold text-white">
-                                ص.س
-                            </div>
+        <!-- Floating Icons -->
+        <div class="absolute top-20 left-20 text-[#c9ae55]/10 text-5xl blog-floating-icon">
+            <i class="fas fa-newspaper"></i>
+        </div>
+        <div class="absolute bottom-40 right-40 text-teal-500/10 text-4xl blog-floating-icon" style="animation-delay: 2s;">
+            <i class="fas fa-pen-alt"></i>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <!-- Header Section -->
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center gap-3 mb-6 animate-fade-in">
+                    <div class="w-3 h-3 bg-[#c9ae55] rounded-full animate-pulse"></div>
+                    <span class="text-[#c9ae55] font-bold text-lg tracking-wider">مدونة سمارت كول</span>
+                    <div class="w-3 h-3 bg-[#c9ae55] rounded-full animate-pulse" style="animation-delay: 0.5s"></div>
+                </div>
+
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4 animate-slide-up">
+                    مدونة <span class="bg-[#c9ae55] bg-clip-text text-transparent">سمارت كول</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed animate-slide-up" data-delay="100">
+                    نصائح ومقالات مفيدة عن <strong>تنظيف مجاري الهواء للمكيفات</strong> و<strong>صيانة دكت التكييف</strong> في جدة
+                </p>
+                <div class="w-24 h-1 bg-[#c9ae55] mx-auto mt-6 rounded-full animate-expand"></div>
+            </div>
+
+            <!-- Blog Posts Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <!-- Blog Post 1 -->
+                <div class="blog-card animate-slide-up" data-delay="100">
+                    <div class="blog-image-container">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=800&auto=format&fit=crop"
+                            alt="فوائد تنظيف مجاري الهواء للمكيفات" class="blog-image">
+                        <div class="blog-badge bg-gradient-to-r from-[#c9ae55] to-amber-500">
+                            <i class="fas fa-wind ml-2"></i>
+                            نصائح صحية
                         </div>
-                        <h2 class="text-2xl font-bold">الصفوة السريعة جدة</h2>
+                        <div class="blog-overlay">
+                            <a href="#" class="blog-read-btn">
+                                <i class="fas fa-book-open"></i>
+                                اقرأ المقال
+                            </a>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">
+                                <i class="far fa-calendar ml-2"></i>
+                                15 ديسمبر 2024
+                            </span>
+                            <span class="blog-author">
+                                <i class="far fa-user ml-2"></i>
+                                فريق سمارت كول
+                            </span>
+                        </div>
+                        <h3 class="blog-title">7 فوائد صحية لـ <strong>تنظيف مجاري الهواء للمكيفات</strong></h3>
+                        <p class="blog-excerpt">
+                            اكتشف كيف يؤثر <strong>تنظيف دكت المكيف المركزي</strong> على صحتك ويقي من أمراض الجهاز التنفسي والحساسية. تعرف على الأعراض التي تدل على حاجتك للتنظيف.
+                        </p>
+                        <div class="blog-tags">
+                            <span class="blog-tag">صحة</span>
+                            <span class="blog-tag">تنظيف مجاري الهواء</span>
+                            <span class="blog-tag">جدة</span>
+                        </div>
                     </div>
                 </div>
 
-                <h2 class="text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
-                    خدماتنا في نقل العفش والنظافة
-                </h2>
-                <div class="w-24 h-1 primary mx-auto mb-6"></div>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                    نقدم خدمات متكاملة لنقل العفش والنظافة في جدة باحترافية عالية، سرعة في التنفيذ، وضمان كامل على الخدمة
+                <!-- Blog Post 2 -->
+                <div class="blog-card animate-slide-up" data-delay="150">
+                    <div class="blog-image-container">
+                        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=800&auto=format&fit=crop"
+                            alt="أسعار تنظيف مجاري الهواء في جدة" class="blog-image">
+                        <div class="blog-badge bg-gradient-to-r from-blue-500 to-blue-600">
+                            <i class="fas fa-tag ml-2"></i>
+                            أسعار وعروض
+                        </div>
+                        <div class="blog-overlay">
+                            <a href="#" class="blog-read-btn">
+                                <i class="fas fa-book-open"></i>
+                                اقرأ المقال
+                            </a>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">
+                                <i class="far fa-calendar ml-2"></i>
+                                12 ديسمبر 2024
+                            </span>
+                            <span class="blog-author">
+                                <i class="far fa-user ml-2"></i>
+                                فريق سمارت كول
+                            </span>
+                        </div>
+                        <h3 class="blog-title">دليل <strong>أسعار تنظيف مجاري الهواء جدة</strong> 2024</h3>
+                        <p class="blog-excerpt">
+                            كل ما تريد معرفته عن <strong>عروض تنظيف مجاري الهواء جدة</strong> وأسعار خدمات <strong>تنظيف دكت المكيفات</strong>. مقارنة شاملة بين الشركات في جدة.
+                        </p>
+                        <div class="blog-tags">
+                            <span class="blog-tag">أسعار</span>
+                            <span class="blog-tag">عروض</span>
+                            <span class="blog-tag">مقارنة</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Post 3 -->
+                <div class="blog-card animate-slide-up" data-delay="200">
+                    <div class="blog-image-container">
+                        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=800&auto=format&fit=crop"
+                            alt="كيفية اختيار شركة تنظيف مجاري الهواء" class="blog-image">
+                        <div class="blog-badge bg-gradient-to-r from-teal-500 to-teal-600">
+                            <i class="fas fa-check-circle ml-2"></i>
+                            دليل عملي
+                        </div>
+                        <div class="blog-overlay">
+                            <a href="#" class="blog-read-btn">
+                                <i class="fas fa-book-open"></i>
+                                اقرأ المقال
+                            </a>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">
+                                <i class="far fa-calendar ml-2"></i>
+                                8 ديسمبر 2024
+                            </span>
+                            <span class="blog-author">
+                                <i class="far fa-user ml-2"></i>
+                                فريق سمارت كول
+                            </span>
+                        </div>
+                        <h3 class="blog-title">كيف تختار <strong>أفضل شركة تنظيف مجاري الهواء بجدة</strong>؟</h3>
+                        <p class="blog-excerpt">
+                            معايير اختيار <strong>شركة تنظيف دكت المكيفات جدة</strong> الموثوقة. دليل شامل لضمان حصولك على أفضل خدمة بأفضل سعر.
+                        </p>
+                        <div class="blog-tags">
+                            <span class="blog-tag">نصائح</span>
+                            <span class="blog-tag">اختيار الشركة</span>
+                            <span class="blog-tag">جودة</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Post 4 -->
+                <div class="blog-card animate-slide-up" data-delay="250">
+                    <div class="blog-image-container">
+                        <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=800&auto=format&fit=crop"
+                            alt="خطوات تنظيف دكت المكيف المركزي" class="blog-image">
+                        <div class="blog-badge bg-gradient-to-r from-purple-500 to-purple-600">
+                            <i class="fas fa-cogs ml-2"></i>
+                            خطوات عملية
+                        </div>
+                        <div class="blog-overlay">
+                            <a href="#" class="blog-read-btn">
+                                <i class="fas fa-book-open"></i>
+                                اقرأ المقال
+                            </a>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">
+                                <i class="far fa-calendar ml-2"></i>
+                                5 ديسمبر 2024
+                            </span>
+                            <span class="blog-author">
+                                <i class="far fa-user ml-2"></i>
+                                فريق سمارت كول
+                            </span>
+                        </div>
+                        <h3 class="blog-title">خطوات <strong>تنظيف دكت المكيف المركزي</strong> خطوة بخطوة</h3>
+                        <p class="blog-excerpt">
+                            شرح مفصل لعملية <strong>تنظيف مجاري الهواء</strong> باستخدام أحدث التقنيات والأجهزة. تعرف على ما يحدث أثناء الخدمة.
+                        </p>
+                        <div class="blog-tags">
+                            <span class="blog-tag">تعليمات</span>
+                            <span class="blog-tag">خطوات</span>
+                            <span class="blog-tag">تقنيات</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Post 5 -->
+                <div class="blog-card animate-slide-up" data-delay="300">
+                    <div class="blog-image-container">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop"
+                            alt="أهمية تنظيف مجاري الهواء للمؤسسات" class="blog-image">
+                        <div class="blog-badge bg-gradient-to-r from-green-500 to-green-600">
+                            <i class="fas fa-building ml-2"></i>
+                            قطاع تجاري
+                        </div>
+                        <div class="blog-overlay">
+                            <a href="#" class="blog-read-btn">
+                                <i class="fas fa-book-open"></i>
+                                اقرأ المقال
+                            </a>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">
+                                <i class="far fa-calendar ml-2"></i>
+                                2 ديسمبر 2024
+                            </span>
+                            <span class="blog-author">
+                                <i class="far fa-user ml-2"></i>
+                                فريق سمارت كول
+                            </span>
+                        </div>
+                        <h3 class="blog-title">أهمية <strong>تنظيف دكت المكيفات</strong> للمؤسسات والشركات</h3>
+                        <p class="blog-excerpt">
+                            كيف يؤثر <strong>تنظيف مجاري الهواء</strong> على إنتاجية الموظفين وصحتهم في المؤسسات التجارية؟ دراسة شاملة للفوائد.
+                        </p>
+                        <div class="blog-tags">
+                            <span class="blog-tag">مؤسسات</span>
+                            <span class="blog-tag">شركات</span>
+                            <span class="blog-tag">إنتاجية</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Post 6 -->
+                <div class="blog-card animate-slide-up" data-delay="350">
+                    <div class="blog-image-container">
+                        <img src="https://images.unsplash.com/photo-1586773860418-dc22f8b874bc?q=80&w=800&auto=format&fit=crop"
+                            alt="الفرق بين الشركات في تنظيف المجاري" class="blog-image">
+                        <div class="blog-badge bg-gradient-to-r from-orange-500 to-orange-600">
+                            <i class="fas fa-balance-scale ml-2"></i>
+                            مقارنة
+                        </div>
+                        <div class="blog-overlay">
+                            <a href="#" class="blog-read-btn">
+                                <i class="fas fa-book-open"></i>
+                                اقرأ المقال
+                            </a>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">
+                                <i class="far fa-calendar ml-2"></i>
+                                28 نوفمبر 2024
+                            </span>
+                            <span class="blog-author">
+                                <i class="far fa-user ml-2"></i>
+                                فريق سمارت كول
+                            </span>
+                        </div>
+                        <h3 class="blog-title"><strong>أرخص شركة تنظيف مجاري الهواء جدة</strong> مقابل الجودة</h3>
+                        <p class="blog-excerpt">
+                            مقارنة بين <strong>أرخص شركة تنظيف دكت المكيفات</strong> والشركات الأخرى في جدة. هل السعر الأرخص يعني جودة أقل؟
+                        </p>
+                        <div class="blog-tags">
+                            <span class="blog-tag">مقارنة</span>
+                            <span class="blog-tag">سعر وجودة</span>
+                            <span class="blog-tag">اختيار</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View All Articles Button -->
+            <div class="text-center mt-12 animate-slide-up" data-delay="400">
+                <a href="/blog.html" class="view-all-btn group">
+                    <span>عرض جميع المقالات</span>
+                    <i class="fas fa-arrow-left group-hover:translate-x-1 transition-transform"></i>
+                </a>
+                <p class="text-gray-600 mt-4 text-sm">
+                    اكتشف المزيد من المقالات عن <strong>تنظيف مجاري الهواء للمكيفات</strong> و<strong>صيانة دكت التكييف</strong>
                 </p>
             </div>
 
-            <!-- الخدمات (3 فقط) -->
-            <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-animation">
+            <!-- CTA Section -->
+            <div class="mt-20">
+                <div class="relative bg-gradient-to-r from-[#c9ae55] to-amber-500 rounded-3xl p-8 md:p-12 text-white shadow-2xl overflow-hidden">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-32 translate-x-32"></div>
+                    <div class="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full translate-y-32 -translate-x-32"></div>
 
-                <!-- خدمة 1 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover scale-in">
-                    <div class="img-container">
-                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                             alt="نقل عفش المنازل" 
-                             class="service-img">
-                        <div class="img-overlay">
-                            <span class="img-overlay-text">نقل آمن وسريع للمنازل</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-orange-500 mb-3">
-                            <i class="fas fa-truck ml-2"></i>
-                            نقل عفش المنازل
-                        </h3>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                            خدمة نقل عفش متكاملة للمنازل والشقق في جدة مع فك وتركيب وتغليف احترافي للحفاظ على الأثاث.
+                    <div class="relative z-10 text-center">
+                        <h3 class="text-2xl md:text-3xl font-bold mb-4">هل تريد استشارة مجانية عن <strong>تنظيف مجاري الهواء</strong>؟</h3>
+                        <p class="text-xl text-white/90 mb-6 max-w-2xl mx-auto">
+                            فريق <strong>سمارت كول</strong> - <strong>أفضل شركة تنظيف دكت التكييف جدة</strong> جاهز للإجابة على استفساراتك
                         </p>
-                        <div class="dual-buttons">
-                            <a href="tel:0592425077" class="dual-button btn-call text-white">
-                                <i class="fas fa-phone-alt"></i>
-                                اتصل الآن
-                            </a>
-                            <a href="https://wa.me/966592425077" class="dual-button btn-whatsapp text-white">
-                                <i class="fab fa-whatsapp"></i>
-                                واتساب
-                            </a>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- خدمة 2 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover scale-in">
-                    <div class="img-container">
-                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1558&q=80" 
-                             alt="فك وتركيب الأثاث" 
-                             class="service-img">
-                        <div class="img-overlay">
-                            <span class="img-overlay-text">فك وتركيب احترافي</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-orange-500 mb-3">
-                            <i class="fas fa-tools ml-2"></i>
-                            فك وتركيب الأثاث
-                        </h3>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                            فريق متخصص في فك وتركيب جميع أنواع الأثاث بدقة عالية لضمان إعادة التركيب بدون أي تلف.
-                        </p>
-                        <div class="dual-buttons">
-                            <a href="tel:0592425077" class="dual-button btn-call text-white">
-                                <i class="fas fa-phone-alt"></i>
-                                اتصل الآن
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                            <a href="tel:0501234567" class="blog-cta-primary animate-pulse-glow">
+                                <i class="fas fa-phone-volume ml-2"></i>
+                                اتصل للاستشارة: 0501234567
                             </a>
-                            <a href="https://wa.me/966592425077" class="dual-button btn-whatsapp text-white">
-                                <i class="fab fa-whatsapp"></i>
-                                واتساب
+                            <a href="https://wa.me/966551234567" class="blog-cta-secondary">
+                                <i class="fab fa-whatsapp ml-2"></i>
+                                محادثة واتساب فورية
                             </a>
                         </div>
-                    </div>
-                </div>
 
-                <!-- خدمة 3 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover scale-in">
-                    <div class="img-container">
-                        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80" 
-                             alt="خدمات النظافة" 
-                             class="service-img">
-                        <div class="img-overlay">
-                            <span class="img-overlay-text">تنظيف شامل وعميق</span>
+                        <!-- Trust Indicators -->
+                        <div class="flex flex-wrap justify-center gap-6 mt-8 text-white/80">
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-book"></i>
+                                <span>أكثر من 50 مقالة عن <strong>تنظيف مجاري الهواء</strong></span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-medal"></i>
+                                <span>خبرة 8 سنوات في <strong>تنظيف دكت المكيفات</strong></span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-check-circle"></i>
+                                <span>معلومات موثقة من خبراء القطاع</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-orange-500 mb-3">
-                            <i class="fas fa-broom ml-2"></i>
-                            خدمات النظافة الشاملة
-                        </h3>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                            تنظيف منازل وشقق وفلل بعد النقل باستخدام مواد آمنة وأجهزة حديثة لنتيجة مثالية.
-                        </p>
-                        <div class="dual-buttons">
-                            <a href="tel:0592425077" class="dual-button btn-call text-white">
-                                <i class="fas fa-phone-alt"></i>
-                                اتصل الآن
-                            </a>
-                            <a href="https://wa.me/966592425077" class="dual-button btn-whatsapp text-white">
-                                <i class="fab fa-whatsapp"></i>
-                                واتساب
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            
-            <!-- ملاحظة للاتصال -->
-            <div class="mt-16 text-center fade-in">
-                <div class="inline-flex items-center justify-center bg-white rounded-xl shadow-md px-6 py-4">
-                    <div class="ml-4">
-                        <i class="fas fa-phone-volume text-2xl text-orange-500"></i>
-                    </div>
-                    <div class="text-right">
-                        <p class="font-bold text-gray-800">للحجز والاستفسار على مدار الساعة</p>
-                        <a href="tel:0592425077" class="text-2xl font-bold primary-text text-orange-500 hover:underline">0592425077</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <script>
-        // Initialize animations
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add scroll animation for cards
-            const cards = document.querySelectorAll('.scale-in');
+    <style>
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes expand {
+            from { width: 0; }
+            to { width: 6rem; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(201, 174, 85, 0.5); }
+            50% { box-shadow: 0 0 30px rgba(201, 174, 85, 0.8); }
+        }
+
+        .animate-fade-in { animation: fadeIn 1s ease-out; }
+        .animate-slide-up { animation: slideUp 0.8s ease-out forwards; opacity: 0; }
+        .animate-expand { animation: expand 1s ease-out forwards; }
+        .animate-pulse-glow { animation: pulseGlow 2s ease-in-out infinite; }
+        .blog-floating-icon { animation: float 8s ease-in-out infinite; }
+
+        /* Blog Cards */
+        .blog-card {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            height: 100%;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            border-color: #c9ae55;
+            box-shadow: 0 20px 40px rgba(201, 174, 85, 0.15);
+        }
+
+        .blog-image-container {
+            position: relative;
+            height: 240px;
+            overflow: hidden;
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .blog-card:hover .blog-image {
+            transform: scale(1.1);
+        }
+
+        .blog-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+        }
+
+        .blog-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            opacity: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.3s ease;
+        }
+
+        .blog-card:hover .blog-overlay {
+            opacity: 1;
+        }
+
+        .blog-read-btn {
+            background: #c9ae55;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .blog-read-btn:hover {
+            background: white;
+            color: #c9ae55;
+            transform: scale(1.05);
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+
+        .blog-date, .blog-author {
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+        }
+
+        .blog-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .blog-excerpt {
+            color: #6b7280;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .blog-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .blog-tag {
+            padding: 0.25rem 0.75rem;
+            background: #f3f4f6;
+            color: #6b7280;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* View All Button */
+        .view-all-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: #c9ae55;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(201, 174, 85, 0.3);
+        }
+
+        .view-all-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(201, 174, 85, 0.4);
+            background: #d4b85e;
+        }
+
+        /* CTA Buttons */
+        .blog-cta-primary {
+            display: inline-flex;
+            align-items: center;
+            background: white;
+            color: #c9ae55;
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .blog-cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            background: #f8f9fa;
+        }
+
+        .blog-cta-secondary {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .blog-cta-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .blog-image-container {
+                height: 200px;
+            }
             
+            .view-all-btn,
+            .blog-cta-primary,
+            .blog-cta-secondary {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.875rem;
+            }
+            
+            .blog-title {
+                font-size: 1.125rem;
+            }
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize animations
+            const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.style.animationPlayState = 'running';
+                        const delay = entry.target.dataset.delay || 0;
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, delay);
                     }
                 });
-            }, { threshold: 0.1 });
-            
-            cards.forEach(card => {
-                observer.observe(card);
+            }, observerOptions);
+
+            // Observe animated elements
+            document.querySelectorAll('.animate-slide-up').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                observer.observe(el);
             });
-            
-            // تأثيرات إضافية عند التمرير
-            const fadeElements = document.querySelectorAll('.fade-in');
-            
-            const fadeObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = 1;
-                        entry.target.style.transform = 'translateY(0)';
-                    }
+
+            // Add hover effect to blog cards
+            document.querySelectorAll('.blog-card').forEach(card => {
+                card.addEventListener('mouseenter', function () {
+                    this.style.zIndex = '10';
                 });
-            }, { threshold: 0.2 });
-            
-            fadeElements.forEach(el => {
-                el.style.opacity = 0;
-                el.style.transform = 'translateY(20px)';
-                el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-                fadeObserver.observe(el);
+                
+                card.addEventListener('mouseleave', function () {
+                    this.style.zIndex = '1';
+                });
+            });
+
+            // Track blog post clicks for analytics
+            document.querySelectorAll('.blog-read-btn, .view-all-btn').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    console.log('Blog navigation:', this.href || this.textContent);
+                    // Add analytics tracking here
+                });
+            });
+
+            // Track phone and WhatsApp clicks
+            document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    console.log('Phone call:', this.href);
+                });
             });
             
-            // تأثير عند النقر على الأزرار
-            const buttons = document.querySelectorAll('.dual-button');
-            buttons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    // تأثير النقر
-                    this.style.transform = 'scale(0.95)';
-                    setTimeout(() => {
-                        this.style.transform = '';
-                    }, 200);
-                    
-                    // تتبع النقر (يمكن إضافة Google Analytics هنا)
-                    const serviceName = this.closest('.card-hover').querySelector('h3').textContent.trim();
-                    console.log(`تم النقر على: ${serviceName} - ${this.textContent.trim()}`);
+            document.querySelectorAll('a[href*="whatsapp"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    console.log('WhatsApp contact:', this.href);
                 });
             });
         });
